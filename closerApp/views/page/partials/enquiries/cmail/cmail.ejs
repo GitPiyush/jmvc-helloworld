@@ -1,0 +1,47 @@
+<div class="cmailBox">
+	<div class="cmailData cmailDataForm">
+		<div class="cmailSection">
+			<label class="inline">To:</label>
+			<span class="toField"><%= enquiry.getCustomerEmail() %></span>
+			<input type="hidden" name="toInput" value="<%= enquiry.getCustomerEmail() %>" />
+			<input type="hidden" name="enquiryId" value="<%= enquiry.id %>" />
+		</div>
+		<div class="cmailSection">
+			<label class="inline">CC:</label>
+			<input type="text" name="ccInput" class="cmailInput" value="" />
+		</div>
+		<div class="cmailSection">	
+			<label class="inline">BCC:</label>
+			<input type="text" name="bccInput" class="cmailInput" value="" />
+		</div>
+		<div class="cmailSection subject">
+			<label class="inline">Subject:</label>
+			<input type="text" name="subjectInput" class="cmailInput" value="RE: Online Enquiry" />
+		</div>
+
+		<!-- Uploaded files appear here -->
+
+		<div class="cmailAttachments">
+			<label>Attachments: <span class="note">*Max upload size is 2.8Mb</span></label>
+			<span class="uploadedAttachments"></span>
+
+			<% Closer.Controllers.Page.Enquiries.cmailCounter++ %>
+			<%= $.View('//closerApp/views/page/partials/enquiries/cmail/attachment', { 
+				number: Closer.Controllers.Page.Enquiries.cmailCounter 
+			}) %>
+			<!-- <div class="buttons">
+				<button type="button" class="addAnotherAttachment">Add Another Attachment</button>
+			</div> -->
+		</div>
+		<div class="cmailSection">
+			<label>Message:</label>
+			<textarea class="cmailMessage" id="cmailMessage" name="message">
+				<%= user.getSignature() %>
+			</textarea>
+		</div>
+	</div>
+
+	<div class="buttons">
+		<button class="sendEmail clsButton" type="button">Send Email</button>
+	</div>
+</div>

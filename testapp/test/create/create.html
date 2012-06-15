@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+            "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+	<head>
+		<title>testapp.test.Create</title>
+        <style type='text/css'>
+            body {font-family: verdana}
+        </style>
+	</head>
+	<body>
+	    <h1>testapp.test.Create Demo</h1>
+		<form id='create' action=''></form>
+		<div id='tests'></div>
+		<script type='text/javascript' 
+                src='../../../steal/steal.js'>
+        </script>
+		<script type='text/javascript'>
+			steal('testapp/test/create','testapp/fixtures',function(){
+				
+				$('#create').testapp_test_create();
+				testapp.Models.test.bind('created', function(ev, test){
+					$('<div>').html("<h3>"+test.name+"</h3><p>"+test.description+"</p>")
+					        .appendTo( $('#tests') )
+				})
+				
+			})
+		</script>
+	</body>
+</html>

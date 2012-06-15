@@ -1,0 +1,175 @@
+{
+	"liveData"     : true,
+	"prodUrl"      : "/closer/closerApi",
+	"stageUrl"     : "/closer/closerApi",
+	"devUrl"       : "/closer/closerApi",
+	"oldUrl"       : "http://abnel75:8080/closer",
+	"haydenDev"    : "",
+	"fileUploadUrl": "/rest/emails/attachments",
+
+	"templateList" : [{
+		"DEFAULT": "default"
+	}],
+
+	"cookies":{
+		"defaultDomain":"Closer.DefaultDomain"
+	},
+
+	"permissionList": {
+		"ADMIN": {
+			"enquiries"         : true,
+			"search"            : true,
+			"manageQueues"      : true,
+			"queueReport"       : true,
+			"consultantSetup"   : true,
+			"login"             : true,
+			"reassign"          : true,
+			"searchByConsultant": true
+		},
+
+		"QUEUE_MANAGER": {
+			"enquiries"         : true,
+			"search"            : true,
+			"manageQueues"      : true,
+			"queueReport"       : true,
+			"consultantSetup"   : true,
+			"login"             : true,
+			"reassign"          : true,
+			"searchByConsultant": true
+		},
+
+		"CONSULTANT": {
+			"enquiries"         : true,
+			"search"            : true,
+			"manageQueues"      : false,
+			"queueReport"       : true,
+			"consultantSetup"   : true,
+			"login"             : true,
+			"reassign"          : false,
+			"searchByConsultant": false
+		}
+	},
+
+	"defaultDomain":{
+		"AU":"au.fcl.internal",
+		"UK":"uk.fcl.internal",
+		"NZ":"nz.fcl.internal",
+		"CN":"cn.fcl.internal"
+	},
+
+	"domainFeatures":{
+		"fcl.internal":{
+			"email"               :"cmail",
+			"emailFallback"       :"gmail",
+			"ActiveDirectorySetup": false,
+			"countryCode"         :"AU"
+		},
+		"au.fcl.internal":{
+			"email"               :"cmail",
+			"emailFallback"       :"gmail",
+			"ActiveDirectorySetup": false,
+			"countryCode"         :"AU"
+		},
+		"fcmtravel.china":{
+			"email"               :"cmail",
+			"emailFallback"       :"outlook",
+			"ActiveDirectorySetup": false,
+			"countryCode"         :"CN"
+		},
+		"uk.fcl.internal":{
+			"email"               :"cmail",
+			"emailFallback"       :"outlook",
+			"ActiveDirectorySetup": false,
+			"countryCode"         :"GB"
+		},
+		"nz.fcl.internal":{
+			"email"               :"cmail",
+			"emailFallback"       :"gmail",
+			"ActiveDirectorySetup": false,
+			"countryCode"         :"NZ"
+		}
+	},
+
+	"featureSupport":{
+		"webkit" :{
+			"cmail"               : true,
+			"fileInputChangeEvent": true,
+			"nativeJSONSupport"   : true,
+			"nonCachedAjaxGET"    : true
+		},
+		"safari" :{
+			"cmail"               : true,
+			"fileInputChangeEvent": true,
+			"nativeJSONSupport"   : true,
+			"nonCachedAjaxGET"    : true
+		},
+		"opera"  :{
+			"cmail"               : true,
+			"fileInputChangeEvent": true,
+			"nativeJSONSupport"   : true,
+			"nonCachedAjaxGET"    : true
+		},
+		"msie"   :{
+			"cmail"               : 8,
+			"fileInputChangeEvent": 9,
+			"nativeJSONSupport"   : false,
+			"nonCachedAjaxGET"    : false
+		},
+		"mozilla":{
+			"cmail"               : 3.6,
+			"fileInputChangeEvent": true,
+			"nativeJSONSupport"   : 8,
+			"nonCachedAjaxGET"    : true
+		}
+	},
+
+	"menuList": [{
+		"internalName": "login",
+		"displayName" : "Login",
+		"display"     : false
+	},
+	{
+		"internalName": "enquiries",
+		"displayName" : "Enquiries",
+		"display"     : true
+	},
+	{
+		"internalName": "search",
+		"displayName" : "Search",
+		"display"     : true
+	},
+	{
+		"internalName": "manageQueues",
+		"displayName" : "Manage Queues",
+		"display"     : true
+	},
+	{
+		"internalName": "queueReport",
+		"displayName" : "Queue Report",
+		"display"     : true
+	},
+	{
+		"internalName": "consultantSetup",
+		"displayName" : "Consultant Setup",
+		"display"     : true
+	}],
+	"cmail":{
+		"errorTypes":[
+			{
+				"type"    :"SizeLimitExceededException",
+				"message" :"File is too large to upload.  The maximum allowed file size is 2.8Mb"
+			}
+			,{
+				"type"    :"Email attachments cannot exceed",
+				"message" :"Maximum combined filesize cannot exceed 15Mb"
+			}
+		]
+	},
+	"paging":{
+		"maxLinks" :5,
+		"nextText" :"next &rsaquo;",
+		"prevText" :"&lsaquo; prev",
+		"firstText":"&laquo; first",
+		"lastText" :"last &raquo;"
+	}
+ }

@@ -1,0 +1,73 @@
+<div class="searchHeading">Search for allocated enquiries only. If you cannot find the enquiry that you are looking for, please look for unallocated enquiries through the Manage Queues tab
+</div>
+<div class="searchListing">
+<form id="searchForm">
+	<div class="left">
+		<div class="inputField">
+			<label>Customer Email:</label>
+			<input type="text" name="customerEmail" class="searchCustomerEmail customerEmail text"></input>
+		</div>
+
+		<% if( Closer.Controllers.Page.Login.checkPermission('searchByConsultant') ) {%>
+		<div class="inputField">
+			<label>Consultant:</label>
+			<input type="text" name="consultant" class="consultant searchConsultant text"></input>
+		</div>
+		<% } %>
+
+	</div>
+	<div class="right">
+		<div class="inputField">
+			<label>Received Between:</label>
+			<input type="text" name="fromDate" class="searchReceivedStartDate text"></input><span>and</span>
+			<input type="text" name="toDate" class="searchReceivedEndDate text"></input>
+		</div>
+		<div class="inputField">
+			<label>Status:</label>
+			<select name="state" class="searchStatus">
+				<option value="any">Any</option>
+				<option value="open">Open</option>
+				<option value="closed">Closed</option>
+			</select>
+		</div>
+	</div>
+	<div class="clr"></div>
+	<button type="button" class="consultantSearchButton clsButton">Search</button>
+</form>
+</div>
+<div class="sorting">
+	<div class="col1">
+		<a href="nameSort" class="activeDesc sortButton">
+			<span class="title">Name</span>
+			<!-- <span class="icon"></span> -->
+		</a>
+	</div>
+	<div class="col2">
+		<a href="queueSort" class="sortButton">
+			<span class="title">Queue</span>
+			<!-- <span class="icon"></span> -->
+		</a>
+	</div>
+	<div class="col3">
+		<a href="receivedDateSort" class="sortButton">
+			<span class="title">Received</span>
+			<!-- <span class="icon"></span> -->
+		</a>
+	</div>
+	<div class="col4">
+		<a href="statusSort" class="sortButton">
+			<span class="title">Status</span>
+			<!-- <span class="icon"></span> -->
+		</a>
+	</div>
+	<div class="col5">
+		<a href="consultantSort" class="sortButton">
+			<span class="title">Consultant</span>
+			<!-- <span class="icon"></span> -->
+		</a>
+	</div>
+</div>
+<div class="searchResults">
+
+</div>
+<div class="paging"></div>

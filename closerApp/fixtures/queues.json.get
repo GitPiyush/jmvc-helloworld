@@ -1,0 +1,23 @@
+[
+  {
+    "name": "CLR_ET_VICTAS_Gippsland",
+    "id": 398548,
+    "description": "CLR_ET_VICTAS_Gippsland",
+    "enquiryCountNonReserved": 0,
+    "active": true
+  },
+  {
+    "name": "CLR_FC_SANT_5S6L",
+    "id": 402625,
+    "description": "CLR_FC_SANT_5S6L",
+    "enquiryCountNonReserved": 0,
+    "active": false
+  },
+  {
+    "name": "CLR_AC_QLD_Accor",
+    "id": 404356,
+    "description": "CLR_AC_QLD_Accor",
+    "enquiryCountNonReserved": 3,
+    "active": true
+  }
+]

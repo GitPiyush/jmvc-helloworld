@@ -1,0 +1,5 @@
+<li class="<%=item.internalName%>"<% if ( !item.display ) { %> style="display:none;"<% } %><%=plugin('data', { internalName: item.internalName }) %>>
+	<a href="#<%= item.internalName %>Tab" id="<%= item.internalName %>TabLink">
+		<span class="Title"><%= item.displayName %></span>
+	</a>
+</li>

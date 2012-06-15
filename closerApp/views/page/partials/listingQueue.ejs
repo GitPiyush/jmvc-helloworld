@@ -1,0 +1,13 @@
+<% for(var i = 0; i < data.length; i++){%>
+	<div class="queue dataItem <% if ( i % 2 == 0) { %>even<% } %>" <%= data[i] %>>
+		<div class="name dataCol col1"><div class="inner"><%= data[i].getName() %></div></div>
+		<%/*%>
+		<div class="status dataCol col2"><div class="inner"><%= data[i].getIsActive() %></div></div>
+		<%*/%>
+		<div class="numEnquiries dataCol col3"><div class="inner"><%= data[i].getNumEnquiries() %></div></div>
+		<div class="numAllocated dataCol col4"><div class="inner"><%= data[i].getNumAllocated() %></div></div>
+		<div class="numUnallocated dataCol col5"><div class="inner"><%= data[i].getNumUnallocated() %></div></div>
+		<div class="avgAgeAllocated dataCol col6"><div class="inner"><%= data[i].getAvgAgeAllocated() %></div></div>
+		<div class="avgAgeUnallocated dataCol col7"><div class="inner"><%= data[i].getAvgAgeUnallocated() %></div></div>
+	</div>
+<%}%>

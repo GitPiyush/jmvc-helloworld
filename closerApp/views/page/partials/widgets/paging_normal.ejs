@@ -1,0 +1,6 @@
+<div class="paging">
+	<% for(var i = 0; i < pagingData.totalPages; i++){%>
+		<a href="#" rel="<%= i + 1 %>" class="pageLink <% if ( i + 1 == pagingData.pageNumber ) { %>active<% } %>"><%= i + 1 %></a>
+	<%}%>
+	<div class="counts"><span class="fromCount"><%= pageStart %></span> - <span class="pageToCount"><%= pageEnd %></span> of <span class="totalCount"><%= pagingData.totalDataSize %></span></div>
+</div>

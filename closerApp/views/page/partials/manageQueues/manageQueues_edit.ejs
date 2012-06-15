@@ -1,0 +1,48 @@
+<div class="editContainer" style="display:none;">
+	<form>
+		<label for="queueName">Name:</label>
+		<input class="text" type="text" name="name" value="<%= data.getName() %>" />
+
+		<label for="queueDescription">Description:</label>
+		<input class="text" type="text" name="description" value="<%= data.getDescription() %>" />
+
+		<label for="queueActive">Active:</label>
+		<select name="active">
+			<option value="true" <% if ( data.getIsActive() == true ) { %> selected="selected" <% } %>>Yes</option>
+			<option value="false" <% if ( data.getIsActive() == false ) { %> selected="selected" <% } %>>No</option>
+		</select>
+	</form>
+</div>
+<div class="editButtons" style="display:none;">
+	<input type="button" name="saveButton" value="Save" title="Save Changes" class="saveButton" <%= data %> />
+</div>
+<!-- All above is not shown?? Ask Mal what this is about?? -->
+
+<h2>Enquiries in this Queue:</h2>
+<table class="enquiriesList" cellpadding="0" cellspacing="0">
+	
+	<thead>
+		<tr>
+			<th>Date</th>
+			<th>Customer</th>
+			<th>&nbsp;Age</th>
+			<th>Actions</th>
+		<tr>
+	</thead>
+
+	<tbody></tbody>
+</table>
+<h1>Move Enquiries</h1>
+<div class="editContainer">
+	<label for="queueName">Number:</label>
+	<input class="text" type="text" name="enquiryMoveCount" value="1" />
+
+	<label for="queueName">Destination Queue:</label>
+	<select name="enquiryMoveQueueList" id="enquiryMoveQueueList">
+		<% $.each( Closer.Controllers.Application.queueData, function( key, queue ) { %>
+			<option value="<%= queue.id %>"><%= queue.getName() %></option>
+		<%  }) %>
+	</select>
+	<button type="button" name="moveButton" title="Move" class="moveButton clsButton">Move</button>
+	<!-- <input type="button" name="moveButton" value="Move" title="Move" class="moveButton clsButton" /> -->
+</div>

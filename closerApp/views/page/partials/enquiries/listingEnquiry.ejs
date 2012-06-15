@@ -1,0 +1,62 @@
+<% var isSearch = isSearch || false %>
+<% for(var i = 0; i < data.length; i++){%>
+	<div class="manageEnquiry dataItem <% if ( i % 2 == 0) { %>even<% } %> progress<%= data[i].getState().id %><% if(data[i].priority){ %> priority<%}%>" <%= data[i] %>>
+		<div class="customer dataCol col1">
+			<div class="inner customerProgressIcon <%= data[i].getProgressIconClass() %>">
+				<span class="icon"></span>
+				<span class="customerName"><%= data[i].getCustomerName() %></span>
+				<span class="customerEmail"><%= data[i].getCustomerEmail() %></span>
+			</div>
+		</div>
+		<div class="queue dataCol col2">
+			<div class="inner">
+				<%= data[i].getQueueName() %>
+			</div>
+		</div>
+		<div class="age dataCol col3">
+			<div class="inner">
+				<% if(isSearch){ %>
+				<%=data[i].getDate()%>
+				<% } else { %>
+				<%= data[i].getAge() %>
+				<% } %>
+			</div>
+		</div>
+		<div class="progress dataCol col4">
+			<div class="inner">
+				<%= data[i].getProgress() %>
+				<% if( data[i].getResolution() ){ %>
+
+				<br><span class="resolutionDetails"><small><%=data[i].getResolution().name%></small>
+					<% } %></span>
+				<span class="edit">
+					<select class="editProgress">
+						<option value="">Please Wait...</option>
+					</select>
+				</span>
+			</div>
+		</div>
+		<div class="buttons buttonCol col5">
+			<div class="inner">
+
+				<% if(isSearch){ %>
+				<%=data[i].getUser().name%><br>
+				<%=data[i].getUser().principalName%>
+				<%/*console.log(data)*/%>
+				<% } else { %>
+
+					<% if(emailMethod == "gmail"){ %>
+					<a href="https://mail.google.com/a/flightcentre.com?view=cm&amp;fs=1&amp;tf=1&amp;source=mailto&amp;to=<%=data[i].getCustomerEmail()%>&amp;su=RE:%20Online%20Enquiry" class="clsButton" target="_blank" >email</a>
+					<% } else if(emailMethod == "outlook") {%>
+					<a href="mailto:<%=data[i].getCustomerEmail()%>?subject=RE:%20Online%20Enquiry" class="clsButton" target="_blank">email</a>
+
+					<% } else { %>
+					<a href="#" class="email clsButton">Email</a>
+					<% } %>
+				<button class="listEnquiryFinish finished clsButton" type="button" value="finished" name="finished">Finished</button>
+
+				<% } %>
+			</div>
+		</div>
+	</div>
+<%}%>

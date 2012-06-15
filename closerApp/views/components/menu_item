@@ -1,0 +1,5 @@
+<li>
+	<a href="#<%= item.internalName %>Tab" id="<%= item.internalName %>TabLink">
+		<span class="Title"><%= item.displayName %></span>
+	</a>
+</li>

@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1964292,
+    "domain": "fcmtravel.china",
+    "defaultUpnSuffix": "fcmtravel.china"
+  },
+  {
+    "id": 2390304,
+    "domain": "fcl.internal",
+    "defaultUpnSuffix": "fcl.internal"
+  },
+  {
+    "id": 2390305,
+    "domain": "au.fcl.internal",
+    "defaultUpnSuffix": "au.fcl.internal"
+  },
+  {
+    "id": 2390306,
+    "domain": "nz.fcl.internal",
+    "defaultUpnSuffix": "nz.fcl.internal"
+  },
+  {
+    "id": 4179599,
+    "domain": "uk.fcl.internal",
+    "defaultUpnSuffix": "uk.fcl.internal"
+  }
+]

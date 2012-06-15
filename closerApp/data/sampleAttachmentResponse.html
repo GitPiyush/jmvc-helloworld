@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Closer attachment uploaded successfully</title>
+	<script src="/jquery/jquery.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	(function( window, top, undefined ){
+
+		// window.Closer = {
+		// 	Controllers:{
+		// 		Page:{
+		// 			Enquiries: {
+		// 				fileUploaded: function(){ alert('ramalamadingdong'); }
+		// 			}
+		// 		}
+		// 	}
+		// };
+
+
+		var getURLParameter = function(name) {
+			return decodeURI(
+				(RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1]
+			);
+		}
+
+
+
+
+		window.onload = function(){
+
+			eval( getURLParameter('callback') + "(" + getURLParameter('callbackID') + ");" );
+
+
+			//callback funtion with return argument called here e.g.
+			// top.Closer.Controllers.Page.Enquiries.uploadComplete(0);
+			// callbackFunction( ID );
+		};
+	})(window, top);
+	</script>
+</head>
+<body>
+	<pre id="uploadResponse">{"attachmentFileHandle":"mailattch4463707448283771876"}</pre>
+</body>
+</html>
