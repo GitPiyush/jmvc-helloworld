@@ -15,4 +15,11 @@ steal.plugins(
 
 	.controllers()					// loads files in controllers folder
 
-	.views();						// adds views to be added to build
+	.views()						// adds views to be added to build
+
+	// Everything  is loaded
+	.then(function(){
+		$(document).ready(function() {
+			$("#Outer").closer_application({ });
+		});
+	});
