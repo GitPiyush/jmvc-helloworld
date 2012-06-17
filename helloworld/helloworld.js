@@ -11,15 +11,17 @@ steal.plugins(
 
 	.resources()					// 3rd party script's (like jQueryUI), in resources folder
 
-	.models()						// loads files in models folder 
+	.models('user')						// loads files in models folder 
 
-	.controllers()					// loads files in controllers folder
+	.controllers(
+		'application',
+		'page/homepage')					// loads files in controllers folder
 
 	.views()						// adds views to be added to build
 
 	// Everything  is loaded
 	.then(function(){
 		$(document).ready(function() {
-			$("#Outer").closer_application({ });
+			$("#myApplication").helloworld_application({ });
 		});
 	});
