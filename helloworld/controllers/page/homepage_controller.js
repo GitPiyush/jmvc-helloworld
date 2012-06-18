@@ -5,7 +5,7 @@ $.Controller('Helloworld.Controllers.Page.Homepage',
 /* @Static */
 {
 	defaults : {
-		container:'.formcontainer'
+		container:'.homepage'
 	},
 
 	setup:function(){
@@ -32,7 +32,7 @@ $.Controller('Helloworld.Controllers.Page.Homepage',
 	 */
 	setupForm:function(){
 		// Insert our template
-		this.element.html('//helloworld/views/user_form', {
+		this.element.find('.formcontainer').html('//helloworld/views/user_form', {
 			form : {
 				title:'Get ready!!!',
 				userField:'check username',
@@ -50,10 +50,9 @@ $.Controller('Helloworld.Controllers.Page.Homepage',
 
 	setUsers:function( users ){
 		this.users = users;
-		console.log(users);
+		this.element.find('.userlist').html('//helloworld/views/user_list', {users:users});
+		console.log('rmrmrmrm');
 	},
-
-
 
 
 	"button click":function( el, ev ){
