@@ -60,7 +60,7 @@ $.Controller('Helloworld.Controllers.Page.Homepage',
 
 		alert('Clicked button!');
 	},
-
+// efg
 	error:function(){}
 
 
