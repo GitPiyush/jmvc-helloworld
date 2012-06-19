@@ -21,6 +21,36 @@ steal.plugins(
 
 	// Everything  is loaded
 	.then(function(){
+
+		// setup some fixtures
+		$.fixture("/users/{id}", function( orig, settings, headers ) {
+
+			$.ajax({
+				url: '/helloworld/fixtures/users.json.get',
+				type: 'GET',
+				dataType: 'json',
+				success: function(data, textStatus, xhr) {
+				//called when successful
+					var result = false;
+					$.each(data, function(k, v){
+						if( v.id == orig.data.id ) {
+							result=v;
+						}
+					});
+				
+				
+					return [ 200, "success", { json: result }, {} ];
+				},
+				error: function(xhr, textStatus, errorThrown) {
+				//called when there is an error
+					return [ 404, "error", {}, {} ];
+				}
+			});
+			
+
+		});
+		
+
 		$(document).ready(function() {
 			$("#myApplication").helloworld_application({ });
 		});

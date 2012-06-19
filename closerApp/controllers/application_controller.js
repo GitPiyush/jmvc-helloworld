@@ -25,6 +25,10 @@ $.Controller('Closer.Controllers.Application',
 		// email:/(\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,6})/
 	},
 	
+	/**
+	 * Default settings for CKEditor - could go in settings.json?
+	 * @type {Array}
+	 */
 	editorToolbar:[
 			{ name: 'editing', items : [ 'SpellCheck' ] },
 			{ name: 'basicstyles', items : [ 'Bold','Italic','Underline','Strike','-','RemoveFormat' ] },
@@ -112,6 +116,13 @@ $.Controller('Closer.Controllers.Application',
 		//});
 	},
 	
+	/**
+	 * Called on either login or browser refresh to setup the application 
+	 * @param  {object} params  Current state params
+	 * @param  {object} success callback function
+	 * @param  {object} error   callback function
+	 * @return {null}
+	 */
 	setupApplication:function( params, success, error ){
 
 			var currentPage = params.currentPage || this.defaultPage;
@@ -182,7 +193,11 @@ $.Controller('Closer.Controllers.Application',
 		/* End alert */
 	},
 
-
+	/**
+	 * Deprecated global error function in favour of applicationMessage called via OpenAjax
+	 * @param  {[type]} msg [description]
+	 * @return {[type]}     [description]
+	 */
 	error: function( msg ) {
 		var message = msg || "Server Error";
 		OpenAjax.hub.publish('modal.display', { content: "tester::"+message, callbackEvent:"null", modalLoadedEvent:"null" });
