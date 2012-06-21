@@ -23,32 +23,55 @@ steal.plugins(
 	.then(function(){
 
 		// setup some fixtures
-		$.fixture("/users/{id}", function( orig, settings, headers ) {
+		// 
+		// $.fixture.findHYG = function(){ console.log('ramalamadingdong'); };
+		
 
-			$.ajax({
-				url: '/helloworld/fixtures/users.json.get',
-				type: 'GET',
-				dataType: 'json',
-				success: function(data, textStatus, xhr) {
-				//called when successful
-					var result = false;
-					$.each(data, function(k, v){
-						if( v.id == orig.data.id ) {
-							result=v;
-						}
-					});
+		$.ajax({
+		  url: 'json/5',
+		  type: 'get',
+		  dataType: 'json',
+		  fixture: "-findHYG",
+
+		 //  function( orig, settings, headers ) {
+
+			// console.log(orig, "INVOKING FIXTURE");
+
+			// $.ajax({
+			// 	url: '/helloworld/fixtures/users.json.get',
+			// 	type: 'GET',
+			// 	dataType: 'json',
+			// 	success: function(data, textStatus, xhr) {
+			// 	//called when successful
+			// 		var result = false;
+			// 		$.each(data, function(k, v){
+			// 			if( v.id == orig.data.id ) {
+			// 				console.log(data, 'full data');
+			// 				result=v;
+			// 			}
+			// 		});
 				
-				
-					return [ 200, "success", { json: result }, {} ];
-				},
-				error: function(xhr, textStatus, errorThrown) {
-				//called when there is an error
-					return [ 404, "error", {}, {} ];
-				}
-			});
+			// 		return [ 200, "success", { json: result }, {} ];
+			// 	},
+			// 	error: function(xhr, textStatus, errorThrown) {
+			// 	//called when there is an error
+			// 		return [ 404, "error", {}, {} ];
+			// 	}
+			// });
 			
 
+		 //  },
+		  complete: function(xhr, textStatus) {
+		    //called when complete
+		  },
+		  success: function(data, textStatus, xhr) {
+		    //called when successful
+		  },
+		  error: function(xhr, textStatus, errorThrown) {
+		    //called when there is an error
+		  }
 		});
+		
 		
 
 		$(document).ready(function() {
