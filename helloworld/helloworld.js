@@ -25,52 +25,69 @@ steal.plugins(
 		// setup some fixtures
 		// 
 		// $.fixture.findHYG = function(){ console.log('ramalamadingdong'); };
+		// 
+		$.fixture.make(
+		  ["messages","message"],
+		  1000, 
+		  function(i, messages){
+
+		  	console.log('this is a test');
+		    return {
+		      subject: "This is message "+i,
+		      body: "Here is some text for this message",
+		      date: Math.floor( new Date().getTime() ),
+		      parentId: i < 100 ? null : Math.floor(Math.random()*i)
+		    }
+		})
 		
 
-		$.ajax({
-		  url: 'json/5',
-		  type: 'get',
-		  dataType: 'json',
-		  fixture: "-findHYG",
+		// $.ajax({
+		//   url: 'json/5',
+		//   type: 'get',
+		//   dataType: 'json',
+		//   fixture: "",
 
-		 //  function( orig, settings, headers ) {
+		//  //  function( orig, settings, headers ) {
 
-			// console.log(orig, "INVOKING FIXTURE");
+		// 	// console.log(orig, "INVOKING FIXTURE");
 
-			// $.ajax({
-			// 	url: '/helloworld/fixtures/users.json.get',
-			// 	type: 'GET',
-			// 	dataType: 'json',
-			// 	success: function(data, textStatus, xhr) {
-			// 	//called when successful
-			// 		var result = false;
-			// 		$.each(data, function(k, v){
-			// 			if( v.id == orig.data.id ) {
-			// 				console.log(data, 'full data');
-			// 				result=v;
-			// 			}
-			// 		});
+		// 	// $.ajax({
+		// 	// 	url: '/helloworld/fixtures/users.json.get',
+		// 	// 	type: 'GET',
+		// 	// 	dataType: 'json',
+		// 	// 	success: function(data, textStatus, xhr) {
+		// 	// 	//called when successful
+		// 	// 		var result = false;
+		// 	// 		$.each(data, function(k, v){
+		// 	// 			if( v.id == orig.data.id ) {
+		// 	// 				console.log(data, 'full data');
+		// 	// 				result=v;
+		// 	// 			}
+		// 	// 		});
 				
-			// 		return [ 200, "success", { json: result }, {} ];
-			// 	},
-			// 	error: function(xhr, textStatus, errorThrown) {
-			// 	//called when there is an error
-			// 		return [ 404, "error", {}, {} ];
-			// 	}
-			// });
+		// 	// 		return [ 200, "success", { json: result }, {} ];
+		// 	// 	},
+		// 	// 	error: function(xhr, textStatus, errorThrown) {
+		// 	// 	//called when there is an error
+		// 	// 		return [ 404, "error", {}, {} ];
+		// 	// 	}
+		// 	// });
 			
 
-		 //  },
-		  complete: function(xhr, textStatus) {
-		    //called when complete
-		  },
-		  success: function(data, textStatus, xhr) {
-		    //called when successful
-		  },
-		  error: function(xhr, textStatus, errorThrown) {
-		    //called when there is an error
-		  }
-		});
+		//  //  },
+		//   complete: function(xhr, textStatus) {
+		//     //called when complete
+		//     console.log( xhr, 'xhr' );
+		//     console.log( xhrtextStatus, 'textStatus' );
+
+		//   },
+		//   success: function(data, textStatus, xhr) {
+		//     //called when successful
+		//   },
+		//   error: function(xhr, textStatus, errorThrown) {
+		//     //called when there is an error
+		//   }
+		// });
 		
 		
 
