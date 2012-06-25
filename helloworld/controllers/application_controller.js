@@ -10,11 +10,6 @@ $.Controller('Helloworld.Controllers.Application',
 
 	getAppDefaults:function( defaultName ){
 		return this.defaults[defaultName] || "Default does not exist!";
-	},
-
-	applicationMessage:function( params ){
-		alert( 'Message type: ' + params.type + 
-			'\nMessage: ' + params.message );
 	}
 },
 /* @Prototype */
@@ -26,14 +21,17 @@ $.Controller('Helloworld.Controllers.Application',
 		OpenAjax.hub.publish('Helloworld.Application.Ready');
 	},
 
+	// An example of using open ajax to loosely link functionality
 	"Helloworld.Message subscribe":function( called, data ) {
 		if ( $.type(data.type) === "undefined" ) {
 			alert( "System error!" );
 			return false;
 		}
 
-		this.Class.applicationMessage( data );
+		$.noticeAdd({
+			text: data.message,
+			stay: false,
+			type: data.type
+		});
 	}
-
-
 });

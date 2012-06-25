@@ -1,4 +1,5 @@
 steal.plugins(	
+	// LOAD SOME CORE JMVC FILES
 	'jquery/controller',			// a widget factory
 	'jquery/controller/subscribe',	// subscribe to OpenAjax.hub
 	'jquery/view/ejs',				// client side templates
@@ -7,9 +8,15 @@ steal.plugins(
 	'jquery/dom/fixture',			// simulated Ajax requests
 	'jquery/dom/form_params')		// form data helper
 	
-	.css('helloworld')	// loads styles
+	// LOAD CSS 
+	.css(
+		'helloworld',
+		'css/jquery.notice',
+		'css/foundation',
+		'css/app'
+	)	// loads styles
 
-	.resources()					// 3rd party script's (like jQueryUI), in resources folder
+	.resources('jquery.notice')					// 3rd party script's (like jQueryUI), in resources folder
 
 	.models('user')						// loads files in models folder 
 
@@ -22,76 +29,8 @@ steal.plugins(
 	// Everything  is loaded
 	.then(function(){
 
-		// setup some fixtures
-		// 
-		// $.fixture.findHYG = function(){ console.log('ramalamadingdong'); };
-		// 
-		$.fixture.make(
-		  ["messages","message"],
-		  1000, 
-		  function(i, messages){
-
-		  	console.log('this is a test');
-		    return {
-		      subject: "This is message "+i,
-		      body: "Here is some text for this message",
-		      date: Math.floor( new Date().getTime() ),
-		      parentId: i < 100 ? null : Math.floor(Math.random()*i)
-		    }
-		})
-		
-
-		// $.ajax({
-		//   url: 'json/5',
-		//   type: 'get',
-		//   dataType: 'json',
-		//   fixture: "",
-
-		//  //  function( orig, settings, headers ) {
-
-		// 	// console.log(orig, "INVOKING FIXTURE");
-
-		// 	// $.ajax({
-		// 	// 	url: '/helloworld/fixtures/users.json.get',
-		// 	// 	type: 'GET',
-		// 	// 	dataType: 'json',
-		// 	// 	success: function(data, textStatus, xhr) {
-		// 	// 	//called when successful
-		// 	// 		var result = false;
-		// 	// 		$.each(data, function(k, v){
-		// 	// 			if( v.id == orig.data.id ) {
-		// 	// 				console.log(data, 'full data');
-		// 	// 				result=v;
-		// 	// 			}
-		// 	// 		});
-				
-		// 	// 		return [ 200, "success", { json: result }, {} ];
-		// 	// 	},
-		// 	// 	error: function(xhr, textStatus, errorThrown) {
-		// 	// 	//called when there is an error
-		// 	// 		return [ 404, "error", {}, {} ];
-		// 	// 	}
-		// 	// });
-			
-
-		//  //  },
-		//   complete: function(xhr, textStatus) {
-		//     //called when complete
-		//     console.log( xhr, 'xhr' );
-		//     console.log( xhrtextStatus, 'textStatus' );
-
-		//   },
-		//   success: function(data, textStatus, xhr) {
-		//     //called when successful
-		//   },
-		//   error: function(xhr, textStatus, errorThrown) {
-		//     //called when there is an error
-		//   }
+		// Starting our application
+		// $(document).ready(function() {
+		// 	$("#myApplication").helloworld_application();
 		// });
-		
-		
-
-		$(document).ready(function() {
-			$("#myApplication").helloworld_application({ });
-		});
 	});

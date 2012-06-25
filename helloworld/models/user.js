@@ -26,6 +26,18 @@ $.Model.extend('Helloworld.Models.User',
 			fixture: "//helloworld/fixtures/users.json.get" //calculates the fixture path from the url and type.
 		});
 	},
+
+	findOne: function( params, success, error ){
+		$.ajax({
+			url: '/helloworld/fixtures/users.php',
+			type: 'get',
+			dataType: 'json',
+			data: params,
+			success: this.callback(['wrap',success]),
+			error: error,
+		});
+	},
+
 	/**
 	 * Updates a users's data.
 	 * @param {String} id A unique id representing your users.
