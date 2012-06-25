@@ -14,7 +14,7 @@ $.Controller('Helloworld.Controllers.Page.Homepage',
 		// Wait to be told the application is ready!
 		OpenAjax.hub.subscribe('Helloworld.Application.Ready', function(data){
 			console.log("APPLICATION IS READY");
-			$(self.defaults.container).helloworld_page_homepage();
+			$('.homepage').helloworld_page_homepage();
 		});
 	}
 },
@@ -26,8 +26,8 @@ $.Controller('Helloworld.Controllers.Page.Homepage',
 	init : function(){
 		// Stuff to do when inialised
 		console.log('Home page initialising');
-		//this.setupForm();
-		//this.getUsers();
+		this.setupForm();
+		this.getUsers();
 	},
 
 	// Setup the find user form
@@ -36,8 +36,8 @@ $.Controller('Helloworld.Controllers.Page.Homepage',
 		this.element.find('.formcontainer').html('//helloworld/views/user_form', {
 			form : {
 				title:'Our users find form!',
-				userField:'check username',
-				sendButton:'get user details'
+				userField:'check username here',
+				sendButton:'get dowdy'
 			}
 		});
 	},
@@ -54,38 +54,38 @@ $.Controller('Helloworld.Controllers.Page.Homepage',
 	},
 
 	// Shows the user details view
-	// showDetails:function( user ){
-	// 	this.element.find('.userdetails').html('//helloworld/views/user_details', {singleUser:user});
-	// },
+	showDetails:function( user ){
+		this.element.find('.userdetails').html('//helloworld/views/user_details', {singleUser:user});
+	},
 
 	// Handles the for submits
 	"button click":function( el, ev ){
 		ev.preventDefault();
 
 		// Get the user name
-		// var user = {};
-		// user.name = this.element.find('input[name=user_input]').val();
+		var user = {};
+		user.name = this.element.find('input[name=user_input]').val();
 
 		// use the model to find and pass to the showDetails callback
-		// Helloworld.Models.User.findOne( user, this.callback('showDetails'), this.callback('error'));
+		Helloworld.Models.User.findOne( user, this.callback('showDetails'), this.callback('error'));
 	},
 
 	// An error example
 	"a.ohno click":function( el, ev ){
 		ev.preventDefault();
 
-	// 	OpenAjax.hub.publish('Helloworld.Message', {
-	// 		type    :'error',
-	// 		message :'Oh no its all happening again!'
-	// 	})
+		OpenAjax.hub.publish('Helloworld.Message', {
+			type    :'error',
+			message :'Oh no its all happening again!'
+		})
 	},
 
 	// One way to make the user links work
 	".userlist a click":function( el, ev ){
 		ev.preventDefault();
 
-	// 	this.element.find('input[name=user_input]').val( el.text() );
-	// 	this.element.find('button').click();
+		this.element.find('input[name=user_input]').val( el.text() );
+		this.element.find('button').click();
 	},
 	
 	// Lets try a better way

@@ -92,7 +92,6 @@ $.Model.extend('Helloworld.Models.User',
 },
 /* @Prototype */
 {
-
 	getName: function() { return this.name; },
 	getDesc: function() { return this.description; },
 	getID  : function() { return this.id }

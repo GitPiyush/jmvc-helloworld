@@ -1,4 +1,9 @@
 <?php
+
+/**
+ * This file fakes JSON server responses
+ */
+
 $output;
 $users = array(
 	array("name" => "john", "description" => "English dude from nowhere near london, does not drink tea", "id" => 5 ),

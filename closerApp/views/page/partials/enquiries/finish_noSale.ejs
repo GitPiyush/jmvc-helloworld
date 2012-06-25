@@ -1,9 +1,0 @@
-<div class="outcomeDetailsBox">
-	<span class="subHeading">Please specify a reason for not selling:</span>
-	<select name="outcomeInput" class="outcomeInput">
-			<option value=''>--Please Select--</option>
-		<% $.each(outcomes, function(key, value) { %>
-			<option <%= value %> value="<%= value.getID() %>"><%= value.getName() %></option>
-		<% }); %>
-	</select>
-</div>

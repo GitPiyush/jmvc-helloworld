@@ -30,7 +30,7 @@ steal.plugins(
 	.then(function(){
 
 		// Starting our application
-		// $(document).ready(function() {
-		// 	$("#myApplication").helloworld_application();
-		// });
+		$(document).ready(function() {
+			$("#myApplication").helloworld_application();
+		});
 	});

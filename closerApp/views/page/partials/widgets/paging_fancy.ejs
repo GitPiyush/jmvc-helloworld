@@ -1,6 +1,0 @@
-<div class="paging">
-	<% $.each(pagingItems, function(k, v){ %>
-		<a href="#" rel="<%=v.rel%>" class="pageLink <% if ( v.rel == pagingData.pageNumber ) { %>active<% } %>"><%=v.text%></a>
-	<% }) %>
-	<div class="counts"><span class="fromCount"><%= pageStart %></span> - <span class="pageToCount"><%= pageEnd %></span> of <span class="totalCount"><%= pagingData.totalDataSize %></span></div>
-</div>
